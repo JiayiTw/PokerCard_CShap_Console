@@ -15,3 +15,10 @@ bld/
 [Ll]og/
 [Ll]ogs/
 .vs/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
