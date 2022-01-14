@@ -30,7 +30,9 @@ namespace Poker
 
             // 比大小並計算回合勝利者
         }
-
+        /// <summary>
+        /// 轉化與確認玩家輸入
+        /// </summary>
         static void PlayerInput() {
             bool _inputSucess = false;
             while (!_inputSucess)
