@@ -22,7 +22,7 @@ namespace Poker
             get => value;
             set
             {
-                if (value >= 13 && value <= 1)
+                if (value <= 13 && value >= 1)
                 {
                     this.value = value;
                 }

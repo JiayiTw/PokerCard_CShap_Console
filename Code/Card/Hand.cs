@@ -29,6 +29,7 @@ namespace Poker.Code.Card
                 throw e;
             }
         }
+
         private bool IsCardInHand(Card card) {
             // 如果選擇的牌有在手牌中
             foreach (var _handCard in hiddinCards)
