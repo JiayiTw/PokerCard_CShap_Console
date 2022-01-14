@@ -7,14 +7,34 @@ namespace Poker.Code.Card
     class ConsolePrinter
     {
         /// <summary>
-        /// 用ConsoleLine Print 雙方的牌在畫面上
+        /// 新的一局遊戲開始叫這支，餵他 玩家手牌，AI手牌，目前菊數
         /// </summary>
-        /// 
-        public void GameStart(Hand mainPlayerHand, Hand otherPlayer) {
+        public void GameStart(Hand mainPlayerHand, Hand otherPlayerHand, int currentRound) {
             Hand playerHand = mainPlayerHand;
-            Hand aiHand = otherPlayer;
-            Console.WriteLine("====== Game Start ======");
+            Hand aiHand = otherPlayerHand;
+            Console.Write("第 ");
+            Console.Write(currentRound);
+            Console.WriteLine(" 局");
+            Console.WriteLine("======= Game Start ======");
             ShowBothHand(playerHand,aiHand);
+            Console.WriteLine("請輸入要打出的手牌編號：");
+        }
+        /// <summary>
+        /// 顯示比賽結果，餵他 玩家出的牌，AI出的牌，贏家 name
+        /// </summary>
+        public void CompetitionResults(Card mainPlayerCard, Card otherPlayerCard ,string winner)
+        {
+            Card playerCard = mainPlayerCard;
+            Card aiCard = otherPlayerCard;
+            Console.Write("你出的牌： ");
+            ShowInputCard(playerCard);
+            Console.WriteLine("");
+            Console.Write("對手出的牌： ");
+            ShowInputCard(aiCard);
+            Console.WriteLine("");
+            Console.WriteLine("贏家：");
+            Console.Write(winner);
+            Console.WriteLine("======= Game End ======");
         }
         /// <summary>
         /// 輸出雙方手牌
@@ -22,13 +42,13 @@ namespace Poker.Code.Card
         /// 你的手牌： [ 第 {number} 張 數值：{card.Value} 花色：{card.Suit} ] * 5
         /// 對手的手牌： [ 第 {number} 張 數值：{card.Value} 花色：{card.Suit} ] * 2 [不給你看] *3
         /// </summary> 
-        private void ShowBothHand(Hand mainPlayerHand, Hand otherPlayer) {
+        public void ShowBothHand(Hand mainPlayerHand, Hand otherPlayer) {
             Hand playerHand = mainPlayerHand;
             Hand aiHand = otherPlayer;
             int i = 1;
             int j = 1;
             //輸出玩家方手牌
-            Console.Write("你的手牌：");
+            Console.WriteLine("你的手牌：");
             foreach ( Card card  in playerHand.visableCards)
             {
                 ShowInputCard(card, i);
@@ -40,7 +60,7 @@ namespace Poker.Code.Card
                 i++;
             }
             //輸出 AI 方手牌
-            Console.Write("對手的手牌：");
+            Console.WriteLine("對手的手牌：");
             foreach (Card card in aiHand.visableCards)
             {
                 ShowInputCard(card, j);
@@ -48,8 +68,25 @@ namespace Poker.Code.Card
             }
             foreach (Card card in aiHand.hiddinCards)
             {
-                Console.Write("[不給你看]");
+                Console.Write("[不給你看] ");
             }
+            Console.WriteLine("------------------");
+        }
+        /// <summary>
+        /// 輸出 1張 餵進來的卡
+        /// 格式：[ 數值：{card.Value} 花色：{card.Suit} ]
+        /// </summary> 
+        private void ShowInputCard(Card inputCard)
+        {
+            Card card = inputCard;
+            Console.Write("[ ");
+            Console.Write("數值： ");
+            Console.Write(card.Value);
+            Console.Write(" ");
+            Console.Write("花色： ");
+            Console.Write(card.Suit);
+            Console.Write(" ]");
+            Console.Write(" ");
         }
         /// <summary>
         /// 輸出 1張 餵進來的卡
