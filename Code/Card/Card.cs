@@ -30,6 +30,7 @@ namespace Poker.Code.Card
                 return false;
             }
         }
+
         public bool IsEqualTo(Card compareTarger) {
             if (this.Suit == compareTarger.Suit && this.Value == compareTarger.Value)
                 return true;

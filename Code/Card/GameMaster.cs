@@ -51,16 +51,44 @@ namespace Poker.Code.Card
             {
                 // 主玩家屌比較大
                 // 增加主玩家勝利次數
-                roundData.wonPlayer[CurrentRound] = mainPlayer;
+                roundData.wonPlayers[CurrentRound] = mainPlayer;
             }
             else
             {
                 // 另一位玩家屌比較大
-                roundData.wonPlayer[CurrentRound] = otherPlayer;
+                roundData.wonPlayers[CurrentRound] = otherPlayer;
             }
 
         }
+        // 確認是否有玩家勝利
+        public Player WinnerCheck() {
 
+            if (CurrentRound < 3)
+                return null;
+            var mainWonTimes = 0;
+            var otherWonTimes = 0;
+
+            foreach (var wonPlayer in roundData.wonPlayers)
+            {
+                if (wonPlayer == mainPlayer)
+                {
+                    mainWonTimes++;
+                }
+                else if (wonPlayer == otherPlayer)
+                {
+                    otherWonTimes++;
+                }
+            }
+            if (mainWonTimes >= 3)
+            {
+                return mainPlayer;
+            }
+            if (otherWonTimes >= 3)
+            {
+                return otherPlayer;
+            }
+            return null;
+        }
         /// <summary>
         /// 發牌給雙方
         /// </summary>
