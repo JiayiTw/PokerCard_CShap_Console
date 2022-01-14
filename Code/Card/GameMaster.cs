@@ -5,6 +5,7 @@ using System.Text;
 namespace Poker.Code.Card
 {
     class GameMaster
-    {        
+    {
+        Player player;
     }
 }
