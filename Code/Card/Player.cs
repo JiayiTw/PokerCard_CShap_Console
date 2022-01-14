@@ -8,11 +8,10 @@ namespace Poker.Code.Card
     {
         public string Name;
 
-        public List<Card> handDeck;
+        public List<Hand> handDeck;
 
-        public static Card CumCard(Card selected)
+        public Card CumCard(Card selected)
         {
-
             Console.WriteLine(" I cum !!! ");
             return selected;
         }
