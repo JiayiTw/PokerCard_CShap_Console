@@ -6,5 +6,13 @@ namespace Poker.Code.Card
 {
     class Hand
     {
+        public List<Card> VisableCards;
+        public List<Card> hiddinCards;
+        public void getcard()
+        {
+            
+
+        }
+
     }
 }
