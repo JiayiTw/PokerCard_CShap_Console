@@ -23,6 +23,12 @@ namespace Poker.Code.Card
         Deck mainDeck;
         //---------回合變數---------//
         public RoundData roundData { get; private set; }
+        /// <summary>
+        /// 不要用我
+        /// </summary>
+        public GameMaster() {
+            // 不要用我
+        }
         //建構子
         public GameMaster(Player mainPlayer, Player ai) {
             // set player
@@ -30,6 +36,7 @@ namespace Poker.Code.Card
             otherPlayer = ai;
             InitializeGame();
         }
+
         private void InitializeGame() {
             //初始化回合
             CurrentRound = 0;
@@ -63,6 +70,7 @@ namespace Poker.Code.Card
             //幫電腦發牌
             SetHandToPlayer(otherPlayer);
         }
+
         private void SetHandToPlayer(Player player) {
 
             var _newHand = new Hand();
