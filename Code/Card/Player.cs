@@ -8,7 +8,7 @@ namespace Poker.Code.Card
     {
         public string Name;
 
-        public List<Hand> handDeck;
+        public Hand handDeck;
 
         public Card CumCard(Card selected)
         {
