@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Poker.Code.Card
 {
-    class Deck
+    class Deck 
     {
         public List<Card> deckcard;
         public int value;
@@ -40,6 +40,15 @@ namespace Poker.Code.Card
                     }
 
                 }
+            Random newr = new Random();
+            //隨機洗牌
+            List<Card> newlist = new List<Card>();
+            foreach (Card item in deckcard)
+            {
+                newlist.Insert(newr.Next(newlist.Count + 1), item);
+
+            }
+
 
             }
            
