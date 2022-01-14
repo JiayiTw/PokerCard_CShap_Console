@@ -14,11 +14,11 @@ namespace Poker.Code.Card
         /// <summary>
         /// 主要玩家
         /// </summary>
-        Player mainPlayer;
+        public Player mainPlayer;
         /// <summary>
         /// 電腦玩家
         /// </summary>
-        Player otherPlayer;
+        public Player otherPlayer;
 
         Deck mainDeck;
         //---------回合變數---------//
