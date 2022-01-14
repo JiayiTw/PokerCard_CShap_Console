@@ -14,7 +14,20 @@ namespace Poker.Code.Card
         /// <returns>大，有夠大</returns>
         public bool IsBiggerThan(Card card) {
             //還沒時做
-            return false;
+            Card inputedCard = card;
+            if (this.Value > inputedCard.Value) {
+                //大GG
+                return true;
+            }
+            else if (this.Value == inputedCard.Value) {
+                //世界的意志決定你小GG
+                return false;
+            }
+            else {
+                //小GG
+                return false;
+            }
+            
 
         }
 
