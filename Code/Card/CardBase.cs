@@ -12,7 +12,7 @@ namespace Poker
         club
     }
 
-    class CardBase
+    abstract class CardBase
     {
         private CardSuitType suit;
         private int value;
