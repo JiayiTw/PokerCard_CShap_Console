@@ -10,7 +10,7 @@ namespace Poker.Code.Card
         /// <summary>
         /// 當前回合
         /// </summary>
-        public int CurrentRound { get => currentRound; private set => currentRound = value; }
+        public int CurrentRound { get => currentRound; set => currentRound = value; }
         /// <summary>
         /// 主要玩家
         /// </summary>
@@ -39,9 +39,10 @@ namespace Poker.Code.Card
 
         private void InitializeGame() {
             //初始化回合
-            CurrentRound = 0;
+            CurrentRound = 1;
             // 初始化牌組
             mainDeck = new Deck();
+            roundData = new RoundData();
         }
         /// <summary>
         /// 幫兩位玩家比大小
@@ -51,12 +52,12 @@ namespace Poker.Code.Card
             {
                 // 主玩家屌比較大
                 // 增加主玩家勝利次數
-                roundData.wonPlayers[CurrentRound] = mainPlayer;
+                roundData.wonPlayers[CurrentRound - 1] = mainPlayer;
             }
             else
             {
                 // 另一位玩家屌比較大
-                roundData.wonPlayers[CurrentRound] = otherPlayer;
+                roundData.wonPlayers[CurrentRound - 1] = otherPlayer;
             }
 
         }
@@ -86,7 +87,7 @@ namespace Poker.Code.Card
             if (otherWonTimes >= 3)
             {
                 return otherPlayer;
-            }
+            }            
             return null;
         }
         /// <summary>
