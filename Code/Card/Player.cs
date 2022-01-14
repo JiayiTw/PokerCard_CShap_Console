@@ -25,9 +25,17 @@ namespace Poker.Code.Card
                 return selected;
             return null;
         }
-        protected bool CanCum(Card card) {
+        protected bool CanCum(Card selected) {
             // 如果選擇的牌有在手牌中
-
+            foreach (var _handCard in handDeck.hiddinCards)
+            {
+                return selected.IsEqualTo(_handCard);
+            }
+            foreach (var _handCard in handDeck.visableCards)
+            {
+                return selected.IsEqualTo(_handCard);
+            }
+            return false;
         }
     }
 }
