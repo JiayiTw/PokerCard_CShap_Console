@@ -22,20 +22,13 @@ namespace Poker
             get => value;
             set
             {
-                try
+                if (value >= 13 && value <= 1)
                 {
-                    if (value >= 13 && value <= 1)
-                    {
-                        this.value = value;
-                    }
-                    else
-                    {
-                        throw new Exception("撲克牌點數錯誤，數值1-13，你的數值為:" + value);
-                    }
+                    this.value = value;
                 }
-                catch (Exception e)
+                else
                 {
-                    Console.WriteLine(e.Message);
+                    throw new Exception("撲克牌點數錯誤，數值1-13，你的數值為:" + value);
                 }
             }
         }
