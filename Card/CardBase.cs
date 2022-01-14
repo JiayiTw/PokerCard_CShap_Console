@@ -30,12 +30,13 @@ namespace Poker
                     }
                     else
                     {
-                        throw new Exception("撲克牌點數錯誤，數值1-13");
+                        throw new Exception("撲克牌點數錯誤，數值1-13，你的數值為:" + value);
                     }
                 }
-                catch (Exception e) {
+                catch (Exception e)
+                {
                     Console.WriteLine(e.Message);
-                }                
+                }
             }
         }
         public CardSuitType Suit { get => suit; set => suit = value; }
