@@ -11,7 +11,6 @@ namespace Poker.Code.Card
         /// 當前回合
         /// </summary>
         public int CurrentRound { get => currentRound; private set => currentRound = value; }
-
         /// <summary>
         /// 主要玩家
         /// </summary>
@@ -22,7 +21,9 @@ namespace Poker.Code.Card
         Player otherPlayer;
 
         Deck mainDeck;
-
+        //---------回合變數---------//
+        public RoundData roundData { get; private set; }
+        //建構子
         public GameMaster(Player mainPlayer, Player ai) {
             // set player
             this.mainPlayer = mainPlayer;
@@ -35,9 +36,24 @@ namespace Poker.Code.Card
             // 初始化牌組
             mainDeck = new Deck();
         }
-        public void Comparer(Card card1, Card card2) {
+        /// <summary>
+        /// 幫兩位玩家比大小
+        /// </summary>        
+        public void Comparer() {
+            if (roundData.currentMainCard.IsBiggerThan(roundData.currentOtherCard))
+            {
+                // 主玩家屌比較大
+                // 增加主玩家勝利次數
+                roundData.wonPlayer[CurrentRound] = mainPlayer;
+            }
+            else
+            {
+                // 另一位玩家屌比較大
+                roundData.wonPlayer[CurrentRound] = otherPlayer;
+            }
 
         }
+
         /// <summary>
         /// 發牌給雙方
         /// </summary>
