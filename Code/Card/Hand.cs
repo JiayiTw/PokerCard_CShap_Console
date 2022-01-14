@@ -8,6 +8,10 @@ namespace Poker.Code.Card
     {
         public List<Card> visableCards;
         public List<Card> hiddinCards;
+        public Hand()
+        {
+
+        }
         public void Getcard()
         {
             
