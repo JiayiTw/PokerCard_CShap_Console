@@ -8,7 +8,7 @@ namespace Poker.Code.Card
     {
         public List<Card> deckcard;
         public int value;
-        public Card drawcard()
+        public Card Drawcard()
         {
             Card card1 = new Card();
             
