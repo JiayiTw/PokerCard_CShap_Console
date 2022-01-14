@@ -7,9 +7,17 @@ namespace Poker.Code.Card
     class ConsolePrinter
     {
         /// <summary>
-        /// 新的一局遊戲開始叫這支，餵他 玩家手牌，AI手牌，目前菊數
+        /// 新的遊戲開始叫這支
         /// </summary>
-        public void GameStart(Hand mainPlayerHand, Hand otherPlayerHand, int currentRound) {
+        public void GameStart()
+        {
+            Console.WriteLine("歡迎來到 蝦☆G8 闇のゲーム！");
+            Console.WriteLine("請輸入玩家暨電子本票立約人名稱：");
+        }
+        /// <summary>
+        /// 新的一局開始叫這支，餵他 玩家手牌，AI手牌，目前菊數
+        /// </summary>
+        public void RoundStart(Hand mainPlayerHand, Hand otherPlayerHand, int currentRound) {
             Hand playerHand = mainPlayerHand;
             Hand aiHand = otherPlayerHand;
             Console.Write("第 ");
@@ -20,9 +28,9 @@ namespace Poker.Code.Card
             Console.WriteLine("請輸入要打出的手牌編號：");
         }
         /// <summary>
-        /// 顯示比賽結果，餵他 玩家出的牌，AI出的牌，贏家 name
+        /// 顯示本局比賽結果叫這支 0800-080-552，餵他 玩家出的牌，AI出的牌，贏家 name
         /// </summary>
-        public void CompetitionResults(Card mainPlayerCard, Card otherPlayerCard ,string winner)
+        public void RoundEnd(Card mainPlayerCard, Card otherPlayerCard ,string winner)
         {
             Card playerCard = mainPlayerCard;
             Card aiCard = otherPlayerCard;
@@ -37,10 +45,19 @@ namespace Poker.Code.Card
             Console.WriteLine("======= Game End ======");
         }
         /// <summary>
+        /// 遊戲結束叫這支
+        /// </summary>
+        public void GameEnd(string winner)
+        {
+            Console.Write("恭喜！恭喜！!恭喜我們的");
+            Console.Write(winner);
+            Console.WriteLine("成功在鋼棍上先刻下3顆★！");
+        }
+        /// <summary>
         /// 輸出雙方手牌
         /// 格式：
         /// 你的手牌： [ 第 {number} 張 數值：{card.Value} 花色：{card.Suit} ] * 5
-        /// 對手的手牌： [ 第 {number} 張 數值：{card.Value} 花色：{card.Suit} ] * 2 [不給你看] *3
+        /// 對手的手牌： [ 第 {number} 張 數值：{card.Value} 花色：{card.Suit} ] * 2 [不給你看] * 剩餘張數
         /// </summary> 
         public void ShowBothHand(Hand mainPlayerHand, Hand otherPlayer) {
             Hand playerHand = mainPlayerHand;
