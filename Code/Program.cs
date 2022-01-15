@@ -1,5 +1,6 @@
 ﻿using Poker.Code.Card;
 using System;
+using System.Text;
 
 namespace Poker
 {
@@ -16,6 +17,9 @@ namespace Poker
             }
         }
         static void Main(string[] args) {
+
+            Console.OutputEncoding = Encoding.UTF8;
+
             var viewPrinter = new ConsolePrinter();
             viewPrinter.GameStart();
             var inputName = Console.ReadLine();
