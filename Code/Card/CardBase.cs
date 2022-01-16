@@ -14,6 +14,9 @@ namespace Poker
 
     abstract class CardBase
     {
+        const int POKER_MAX_VALUE = 13;
+        const int POKER_MIN_VALUE = 1;
+
         private CardSuitType suit;
         private int value;
 
@@ -22,7 +25,7 @@ namespace Poker
             get => value;
             set
             {
-                if (value <= 13 && value >= 1)
+                if (value <= POKER_MAX_VALUE && value >= POKER_MIN_VALUE)
                 {
                     this.value = value;
                 }
@@ -33,5 +36,7 @@ namespace Poker
             }
         }
         public CardSuitType Suit { get => suit; set => suit = value; }
+
+
     }
 }
