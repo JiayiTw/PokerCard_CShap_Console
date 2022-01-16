@@ -1,5 +1,6 @@
 ﻿using Poker.Code.Card;
 using System;
+using System.Text;
 
 namespace Poker
 {
@@ -16,12 +17,15 @@ namespace Poker
             }
         }
         static void Main(string[] args) {
+
+            Console.OutputEncoding = Encoding.UTF8;
+
             var viewPrinter = new ConsolePrinter();
             viewPrinter.GameStart();
             var inputName = Console.ReadLine();
 
             var mainPlayer = new Player(inputName);
-            var otherPlayer = new Player("AI");
+            var otherPlayer = new AiPlayer("AI");
             // 產生新的遊戲
             var GM = new GameMaster(mainPlayer, otherPlayer);
             // 幫雙方發牌
@@ -42,8 +46,8 @@ namespace Poker
 
                 // 請玩家輸入你要打出的牌
                 var inputIndex = PlayerInputToCardIndex();
+                //雙方玩家出牌
                 GM.roundData.currentMainCard = GM.mainPlayer.CumCard(inputIndex);
-
                 GM.roundData.currentOtherCard = GM.otherPlayer.CumCard(inputIndex);
 
                 ////// 比大小並計算回合勝利者
